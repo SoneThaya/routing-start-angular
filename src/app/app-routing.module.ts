@@ -51,6 +51,8 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
+  // location strategies hash in url
+  // imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
 })
