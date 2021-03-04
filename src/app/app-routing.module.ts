@@ -1,4 +1,4 @@
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from "./auth-guard.service";
 import { Routes, RouterModule } from "@angular/router";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
@@ -19,7 +19,10 @@ const appRoutes: Routes = [
 
   {
     path: "servers",
-    canActivate: [AuthGuard],
+    // protect route
+    //canActivate: [AuthGuard],
+    //protect child routes
+    canActivateChild: [AuthGuard],
     component: ServersComponent,
     children: [
       { path: ":id", component: ServerComponent },
@@ -33,8 +36,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
