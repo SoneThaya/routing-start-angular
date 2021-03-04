@@ -1,3 +1,4 @@
+import { ErrorPageComponent } from "./error-page/error-page.component";
 import { AuthGuard } from "./auth-guard.service";
 import { Routes, RouterModule } from "@angular/router";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -34,7 +35,12 @@ const appRoutes: Routes = [
       },
     ],
   },
-  { path: "not-found", component: PageNotFoundComponent },
+  // { path: "not-found", component: PageNotFoundComponent },
+  {
+    path: "not-found",
+    component: ErrorPageComponent,
+    data: { message: "Page not found!" },
+  },
   // wild card route, must be last route
   { path: "**", redirectTo: "/not-found" },
 ];
